@@ -82,3 +82,22 @@ This repo includes automated checks (`.github/workflows/classroom.yml`) that ver
 - no virtual environment was committed
 
 These checks cover the mechanical parts of the assignment. Your README explanations and homework answers are graded separately by your instructor.
+
+## Day 2 Assignment Notes
+
+### What `name=` does for a URL
+Giving a URL a `name=` parameter assigns a unique identifier to that specific route. This is incredibly useful because it allows you to refer to the URL by its name rather than hardcoding the actual URL path. For example, in templates, you can use `{% url 'home' %}` instead of `href="/"`. If you ever decide to change the URL path from `/about/` to `/info/`, you only have to change it in `urls.py`, and all your template links will automatically update without breaking.
+
+### Homework Questions
+
+**1. In your own words, explain the difference between a project and an app.**
+A **project** is the entire web application itself. It contains the global settings, database configurations, and acts as a container for multiple apps. An **app** is a smaller, modular sub-system within the project that handles a specific feature (like a blog, a forum, or a task manager). A project can have many apps, and an app can theoretically be reused in different projects.
+
+**2. What command creates a new Django app?**
+`python manage.py startapp <app_name>`
+
+**3. Why do we register an app inside INSTALLED_APPS?**
+Registering an app in `INSTALLED_APPS` tells Django that the app is active and part of the project. This allows Django to discover the app's models (for database migrations), templates, static files, and URL configurations.
+
+**4. What does giving a URL a `name=` actually let you do later?**
+It allows you to dynamically reverse-resolve URLs. Instead of hardcoding URL paths in your HTML templates or Python views, you can use the URL's name (e.g., using the `{% url 'name' %}` template tag or the `reverse()` function in Python). This makes your code DRY (Don't Repeat Yourself) and much easier to maintain if URL paths change in the future.
